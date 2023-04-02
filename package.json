@@ -1,5 +1,5 @@
 {
-  "name": "react-share-state",
+  "name": "react-hooks-toolkit",
   "version": "0.0.1",
   "description": "Sharing state between components in React",
   "source": "src/index.ts",
