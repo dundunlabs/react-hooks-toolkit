@@ -1,6 +1,6 @@
 {
   "name": "react-hooks-toolkit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Some useful hooks you might need in your React application",
   "source": "src/*.{ts,tsx}",
   "main": "./dist/index.js",
