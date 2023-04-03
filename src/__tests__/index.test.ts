@@ -1,4 +1,4 @@
-import { createSharedState, useSharedState } from '..'
+import useSharedState, { createSharedState } from '../useSharedState'
 import { renderHook, waitFor } from '@testing-library/react'
 
 describe("useSharedState", () => {
