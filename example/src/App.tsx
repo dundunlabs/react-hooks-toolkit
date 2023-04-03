@@ -1,12 +1,12 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import useSharedState, { createSharedState } from 'react-hooks-toolkit/hooks/useSharedState'
+import { createSharedState, useSharedState } from 'react-hooks-toolkit'
 
-const sharedCount = createSharedState<number>()
+const sharedCount = createSharedState(0)
 
 function App() {
-  const [count] = useSharedState(sharedCount, 0)
+  const [count] = useSharedState(sharedCount)
 
   return (
     <div className="App">

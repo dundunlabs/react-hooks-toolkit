@@ -1,5 +1,6 @@
-import useSharedState, { createSharedState } from '../useSharedState'
-import { renderHook, waitFor } from '@testing-library/react'
+import useSharedState from '../useSharedState'
+import createSharedState from '../../utils/createSharedState'
+import { renderHook, act } from '@testing-library/react'
 
 describe("useSharedState", () => {
   test("returns initial state based on createSharedState's param", () => {
@@ -20,12 +21,12 @@ describe("useSharedState", () => {
     expect(result1.current[0]).toBeUndefined()
     expect(result2.current[0]).toBeUndefined()
 
-    await waitFor(() => result1.current[1]("test"))
+    act(() => result1.current[1]("test"))
 
     expect(result1.current[0]).toEqual("test")
     expect(result2.current[0]).toEqual("test")
 
-    await waitFor(() => result2.current[1]((prevState: string) => prevState + 1))
+    act(() => result2.current[1]((prevState: string) => prevState + 1))
 
     expect(result1.current[0]).toEqual("test1")
     expect(result2.current[0]).toEqual("test1")

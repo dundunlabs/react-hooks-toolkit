@@ -2,30 +2,13 @@
   "name": "react-hooks-toolkit",
   "version": "0.0.4",
   "description": "Some useful hooks you might need in your React application",
-  "source": [
-    "./src/index.ts",
-    "./src/hooks/useSharedState.ts"
-  ],
+  "source": "./src/index.ts",
   "main": "./dist/index.js",
   "module": "./dist/index.module.js",
+  "exports": "./dist/index.modern.mjs",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.modern.mjs",
-      "module": "./dist/index.module.js",
-      "require": "./dist/index.js"
-    },
-    "./hooks/useSharedState": {
-      "types": "./dist/hooks/useSharedState.d.ts",
-      "import": "./dist/useSharedState.modern.mjs",
-      "module": "./dist/useSharedState.module.js",
-      "require": "./dist/useSharedState.js"
-    }
-  },
   "files": [
-    "./dist",
-    "./{hooks}/**/package.json"
+    "./dist"
   ],
   "scripts": {
     "build": "microbundle build",
@@ -35,7 +18,7 @@
   "keywords": [
     "react",
     "react-native",
-    "state"
+    "hooks"
   ],
   "author": "dung28-td",
   "license": "MIT",

@@ -2,6 +2,5 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  collectCoverage: true,
-  rootDir: "./src"
+  collectCoverage: true
 };
