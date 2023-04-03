@@ -1,1 +1,2 @@
-export { default as useSharedState, createSharedState } from './useSharedState'
+export { default as useSharedState } from './useSharedState'
+export { createSharedState } from './useSharedState'
