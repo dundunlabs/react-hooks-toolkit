@@ -1,7 +1,7 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { createSharedState, useSharedState } from 'react-hooks-toolkit'
+import useSharedState, { createSharedState } from 'react-hooks-toolkit/hooks/useSharedState'
 
 const sharedCount = createSharedState<number>()
 

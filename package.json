@@ -2,24 +2,16 @@
   "name": "react-hooks-toolkit",
   "version": "0.0.3",
   "description": "Some useful hooks you might need in your React application",
-  "source": "src/*.{ts,tsx}",
+  "source": [
+    "./src/index.ts",
+    "./src/hooks/useSharedState.ts"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.module.js",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.module.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./useSharedState": {
-      "require": "./dist/useSharedState.js",
-      "import": "./dist/useSharedState.module.js",
-      "types": "./dist/useSharedState.d.ts"
-    }
-  },
   "files": [
-    "./dist"
+    "./dist",
+    "./**/package.json"
   ],
   "scripts": {
     "build": "microbundle build",

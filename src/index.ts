@@ -1,2 +1,2 @@
-export { default as useSharedState } from './useSharedState'
-export { createSharedState } from './useSharedState'
+export { default as useSharedState } from './hooks/useSharedState'
+export { createSharedState } from './hooks/useSharedState'
