@@ -5,6 +5,10 @@ class SharedState<S> {
   #subscriptions: Set<Dispatch<SetStateAction<S | undefined>>> = new Set()
   #state: S | undefined
 
+  constructor(state?: S) {
+    this.#state = state
+  }
+
   subscribe = (dispatch: Dispatch<SetStateAction<S | undefined>>) => {
     this.#subscriptions.add(dispatch)
     return () => this.unsubscribe(dispatch)
@@ -22,31 +26,26 @@ class SharedState<S> {
     return this.#state
   }
 
-  set = (value: S | undefined) => {
-    this.#state = value
+  set = (state: S | undefined) => {
+    this.#state = state
     this.broadcast()
   }
 }
 
-export function createSharedState<S>() {
-  return new SharedState<S>()
+export function createSharedState<S>(initialState?: S) {
+  return new SharedState<S>(initialState)
 }
 
-function isFunc<S>(state: S | (() => S)): state is (() => S) {
-  return typeof state === 'function'
+function isFunc<S>(action: SetStateAction<S>): action is (prevState: S) => S {
+  return typeof action === 'function'
 }
+export default function useSharedState<S>(sharedState: SharedState<S>) {
+  const [state, dispatch] = useState(sharedState.get())
 
-export default function useSharedState<S>(sharedState: SharedState<S>, initialState?: S | (() => S)) {
-  const [state, dispatch] = useState(() => {
-    let s = sharedState.get()
-    if (s === undefined) {
-      s = isFunc(initialState) ? initialState() : initialState
-      if (s !== undefined) sharedState.set(s)
-    }
-    return s
-  })
-
-  const setState = useCallback((s: S | undefined) => sharedState.set(s), [sharedState])
+  const setState = useCallback<Dispatch<SetStateAction<S | undefined>>>(action => {
+    const state = isFunc(action) ? action(sharedState.get()) : action
+    sharedState.set(state)
+  }, [sharedState])
 
   useEffect(() => sharedState.subscribe(dispatch), [sharedState, dispatch])
 
