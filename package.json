@@ -9,9 +9,23 @@
   "main": "./dist/index.js",
   "module": "./dist/index.module.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.modern.mjs",
+      "module": "./dist/index.module.js",
+      "require": "./dist/index.js"
+    },
+    "./hooks/useSharedState": {
+      "types": "./dist/hooks/useSharedState.d.ts",
+      "import": "./dist/useSharedState.modern.mjs",
+      "module": "./dist/useSharedState.module.js",
+      "require": "./dist/useSharedState.js"
+    }
+  },
   "files": [
     "./dist",
-    "./**/package.json"
+    "./{hooks}/**/package.json"
   ],
   "scripts": {
     "build": "microbundle build",

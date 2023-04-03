@@ -1,5 +1,7 @@
 {
-  "main": "../../dist/useSharedState.js",
-  "module": "../../dist/useSharedState.module.js",
-  "types": "../../dist/hooks/useSharedState.d.ts"
+  "main": "./../../dist/useSharedState.js",
+  "module": "./../../dist/useSharedState.module.js",
+  "exports": "./../../dist/useSharedState.modern.mjs",
+  "types": "./../../dist/hooks/useSharedState.d.ts",
+  "private": true
 }
