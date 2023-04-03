@@ -19,7 +19,8 @@
     }
   },
   "scripts": {
-    "build": "microbundle",
+    "build": "microbundle build",
+    "watch": "microbundle watch",
     "test": "jest"
   },
   "keywords": [
